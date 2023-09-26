@@ -109,7 +109,7 @@ def train_your_custom_sac(
     total_timesteps = episodes*(env.time_steps - 1)
     print('Number of episodes to train:', episodes)
     loader = get_loader(max=total_timesteps)
-    # display(loader)
+    display(loader)
 
     # initialize callback
     callback = CustomCallback(env=env, loader=loader)
