@@ -2,6 +2,7 @@ from ipywidgets import IntProgress
 from citylearn.citylearn import CityLearnEnv
 from stable_baselines3.common.callbacks import BaseCallback
 from typing import List
+import numpy as np
 
 class CustomCallback(BaseCallback):
     def __init__(self, env: CityLearnEnv, loader: IntProgress):
@@ -74,7 +75,7 @@ class SACDCallback(BaseCallback):
             self.reward_history.append(0)
 
         else:
-            print([a * b for a, b in zip(self.weights_vector, self.env.rewards[-1])])
+            print(np.dot(np.array(self.env.rewards[-1]),np.array(self.weights_vector)),"reward")
             print(self.reward_history[-1],"reward history")
             self.reward_history[-1] += sum(self.env.rewards[-1])
 
