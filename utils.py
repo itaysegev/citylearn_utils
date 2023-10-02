@@ -75,6 +75,8 @@ class SACDCallback(BaseCallback):
             self.reward_history.append(0)
 
         else:
+            print(self.env.rewards[-1], "rewards")
+            print(np.dot(np.array(self.env.rewards[-1]),np.array(self.weights_vector)), "dot product")
             self.reward_history[-1] += np.dot(np.array(self.env.rewards[-1]),np.array(self.weights_vector))
 
         self.loader.value += 1
