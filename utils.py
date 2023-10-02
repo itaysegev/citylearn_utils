@@ -1,7 +1,7 @@
 from ipywidgets import IntProgress
 from citylearn.citylearn import CityLearnEnv
 from stable_baselines3.common.callbacks import BaseCallback
-
+from typing import List
 
 class CustomCallback(BaseCallback):
     def __init__(self, env: CityLearnEnv, loader: IntProgress):
