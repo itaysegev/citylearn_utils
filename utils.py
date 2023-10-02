@@ -27,6 +27,8 @@ class CustomCallback(BaseCallback):
             self.reward_history.append(0)
 
         else:
+            print(self.env.rewards[-1],"reward")
+            print(self.reward_history[-1], "reward history")
             self.reward_history[-1] += sum(self.env.rewards[-1])
 
         self.loader.value += 1
