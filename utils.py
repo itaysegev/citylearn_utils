@@ -64,7 +64,7 @@ class SACDCallback(BaseCallback):
         super().__init__(verbose=0)
         self.loader = loader
         self.env = env
-        self.reward_history = [0] * len(weights_vector)
+        self.reward_history = [0]
         self.weights_vector = weights_vector
 
     def _on_step(self) -> bool:
@@ -74,9 +74,9 @@ class SACDCallback(BaseCallback):
             self.reward_history.append(0)
 
         else:
-            print(self.weights_vector,"weights vector")
-            print(self.env.rewards[-1],"reward")
-            print(self.reward_history[-1], "reward history")
+
+            print(self.env.rewards,"reward")
+            print(self.env.rewards[-1],"reward[-1]")
             self.reward_history[-1] += sum(self.env.rewards[-1])
 
         self.loader.value += 1
