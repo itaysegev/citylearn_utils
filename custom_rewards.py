@@ -1,6 +1,7 @@
 from citylearn.reward_function import RewardFunction
 from citylearn.citylearn import CityLearnEnv
 from typing import List
+import numpy as np
 
 class SACCustomReward(RewardFunction):
     def __init__(self, env: CityLearnEnv):
